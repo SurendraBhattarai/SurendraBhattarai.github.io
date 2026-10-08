@@ -109,8 +109,20 @@
                     visitor traffic. No personal information is
                     collected or sold.
                 </span>
+                &nbsp;·&nbsp;
+                <span style="font-size: 10px; color: rgba(255,255,255,0.45);">
+                    <span id="gc-total"></span> visits
+            </span>
             </p>
         </div>
     </div>
-
+<script>
+    fetch('https://foraglab.goatcounter.com/counter/TOTAL.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            var el = document.getElementById('gc-total');
+            if (el) el.textContent = Number(data.count).toLocaleString();
+        })
+        .catch(function() {});
+</script>
 </footer>
