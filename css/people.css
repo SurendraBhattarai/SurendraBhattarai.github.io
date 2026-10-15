@@ -29,21 +29,15 @@
 
 .people-section .section-heading h2 {
     color: var(--brown-dark);
-
-    font-size:
-        clamp(36px, 5vw, 52px);
-
+    font-size: clamp(36px, 5vw, 52px);
     font-weight: 500;
     line-height: 1.1;
-
     letter-spacing: -0.6px;
 }
 
 .people-section .section-heading > p:last-child {
     max-width: 760px;
-
     color: var(--text-light);
-
     font-size: 17px;
     line-height: 1.75;
 }
@@ -55,40 +49,22 @@
 
 .pi-card {
     position: relative;
-
     display: grid;
-
-    grid-template-columns:
-        minmax(320px, 440px)
-        minmax(0, 1fr);
-
+    grid-template-columns: minmax(320px, 440px) minmax(0, 1fr);
     background: var(--white);
-
     border: 1px solid var(--border-light);
-
-    box-shadow:
-        0 20px 55px
-        rgba(59, 42, 32, 0.10);
-
+    box-shadow: 0 20px 55px rgba(59, 42, 32, 0.10);
     overflow: hidden;
 }
 
-
-/* Green top accent */
-
 .pi-card::before {
     content: "";
-
     position: absolute;
-
     left: 0;
     top: 0;
-
     width: 100%;
     height: 4px;
-
     background: var(--green);
-
     z-index: 2;
 }
 
@@ -99,45 +75,28 @@
 
 .pi-image {
     position: relative;
-
     min-height: 480px;
-
     background: var(--cream-dark);
-
     overflow: hidden;
 }
 
 .pi-image::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     bottom: 0;
-
     width: 100%;
     height: 25%;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(59, 42, 32, 0.12),
-            transparent
-        );
-
+    background: linear-gradient(to top, rgba(59, 42, 32, 0.12), transparent);
     pointer-events: none;
 }
 
 .pi-image img {
     width: 100%;
     height: 100%;
-
     display: block;
-
     object-fit: cover;
-
-    transition:
-        transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .pi-card:hover .pi-image img {
@@ -153,47 +112,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     padding: 58px 62px;
 }
 
 .role {
     margin-bottom: 13px;
-
     color: var(--green);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 }
 
 .pi-content h3 {
     margin-bottom: 13px;
-
     color: var(--brown-dark);
-
-    font-size:
-        clamp(36px, 4vw, 46px);
-
+    font-size: clamp(36px, 4vw, 46px);
     font-weight: 500;
     line-height: 1.12;
-
     letter-spacing: -0.5px;
 }
 
 .position {
     margin-bottom: 20px;
-
     color: var(--brown);
-
     font-size: 19px;
     line-height: 1.5;
 }
@@ -204,9 +147,7 @@
 
 .bio {
     max-width: 620px;
-
     color: var(--text-light);
-
     font-size: 16px;
     line-height: 1.75;
 }
@@ -219,9 +160,7 @@
 .pi-links {
     display: flex;
     flex-wrap: wrap;
-
     gap: 10px;
-
     margin-top: 20px;
 }
 
@@ -229,27 +168,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     min-height: 42px;
-
     padding: 9px 17px;
-
     border: 1px solid var(--brown);
-
     color: var(--brown);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 0.7px;
-
     text-transform: uppercase;
-
     transition:
         background-color 0.2s ease,
         border-color 0.2s ease,
@@ -259,13 +186,9 @@
 
 .pi-links a:hover {
     background: var(--brown);
-
     border-color: var(--brown);
-
     color: var(--white);
-
-    transform:
-        translateY(-2px);
+    transform: translateY(-2px);
 }
 
 .pi-links a:focus-visible {
@@ -280,80 +203,118 @@
 
 .people-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
-
     align-items: stretch;
 }
 
 
 /* =====================================================
-   PERSON CARD
+   PERSON CARD — FLIP CARD BASE
 ===================================================== */
 
 .person-card {
     position: relative;
-
-    display: flex;
-    flex-direction: column;
-
     min-width: 0;
-
-    background: var(--white);
-
-    border: 1px solid var(--border-light);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    min-height: 500px;
+    perspective: 1000px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    cursor: pointer;
+    transition: none !important;
 }
 
 .person-card::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background: var(--green);
-
-    transform:
-        scaleX(0);
-
-    transform-origin:
-        left;
-
-    transition:
-        transform 0.25s ease;
-
-    z-index: 2;
+    display: none !important;
 }
 
 .person-card:hover {
-    border-color:
-        rgba(83, 107, 69, 0.30);
-
-    box-shadow:
-        0 18px 40px
-        rgba(59, 42, 32, 0.11);
-
-    transform:
-        translateY(-5px);
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
 }
 
-.person-card:hover::before {
-    transform:
-        scaleX(1);
+
+/* =====================================================
+   FLIP INNER
+===================================================== */
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.person-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* =====================================================
+   FLIP FRONT AND BACK
+===================================================== */
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.flip-front {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 25px rgba(59, 42, 32, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px;
+    background: var(--brown-dark);
+    color: var(--white);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 25px rgba(59, 42, 32, 0.08);
+}
+
+
+/* =====================================================
+   FLIP FRONT HOVER EFFECT
+===================================================== */
+
+.flip-front::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+    z-index: 2;
+}
+
+.person-card:not(.flipped):hover .flip-front::before {
+    transform: scaleX(1);
+}
+
+.person-card:not(.flipped):hover .flip-front {
+    box-shadow: 0 18px 40px rgba(59, 42, 32, 0.13);
+    border-color: rgba(83, 107, 69, 0.30);
 }
 
 
@@ -363,104 +324,145 @@
 
 .person-image {
     height: 320px;
-
     background: var(--cream-dark);
-
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .person-image img {
     width: 100%;
     height: 100%;
-
     display: block;
-
     object-fit: cover;
-
-    transition:
-        transform 0.45s ease;
+    transition: transform 0.45s ease;
 }
 
-.person-card:hover .person-image img {
-    transform:
-        scale(1.035);
+.person-card:not(.flipped):hover .person-image img {
+    transform: scale(1.035);
 }
 
 
 /* =====================================================
-   PERSON CONTENT
+   PERSON CONTENT — FRONT
 ===================================================== */
 
 .person-content {
     display: flex;
     flex-direction: column;
-
     flex: 1;
-
     padding: 29px 29px 33px;
 }
 
 .person-role {
     margin-bottom: 11px;
-
     color: var(--green);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 1.8px;
-
     text-transform: uppercase;
 }
 
 .person-content h3 {
     margin-bottom: 19px;
-
     color: var(--brown-dark);
-
     font-size: 27px;
     font-weight: 500;
-
     line-height: 1.2;
-
     letter-spacing: -0.2px;
 }
 
-
-/* =====================================================
-   RESEARCH AREA
-===================================================== */
-
 .research-label {
     margin-bottom: 6px;
-
     color: var(--brown);
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 1.5px;
-
     text-transform: uppercase;
 }
 
 .person-content p:last-child {
     margin-bottom: 0;
-
     color: var(--text-light);
-
     font-size: 15px;
     line-height: 1.7;
+}
+
+
+/* =====================================================
+   FLIP BACK CONTENT
+===================================================== */
+
+.flip-back .person-role {
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.flip-back h3 {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.flip-back .research-label {
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.flip-back p:last-child {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    line-height: 1.75;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   FLIP HINTS
+===================================================== */
+
+.flip-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    background: var(--green);
+    padding: 4px 10px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.person-card:not(.flipped):hover .flip-hint {
+    opacity: 1;
+}
+
+.flip-back-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.45);
+    padding: 4px 10px;
 }
 
 
@@ -471,9 +473,7 @@
 @media (max-width: 1000px) {
 
     .pi-card {
-        grid-template-columns:
-            minmax(280px, 360px)
-            minmax(0, 1fr);
+        grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
     }
 
     .pi-content {
@@ -485,8 +485,7 @@
     }
 
     .people-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
 }
@@ -514,9 +513,6 @@
         font-size: 16px;
     }
 
-
-    /* PI */
-
     .pi-card {
         grid-template-columns: 1fr;
     }
@@ -538,17 +534,17 @@
         font-size: 18px;
     }
 
-
-    /* Members */
-
     .people-grid {
         grid-template-columns: 1fr;
-
         gap: 22px;
     }
 
     .person-image {
         height: 350px;
+    }
+
+    .flip-inner {
+        min-height: 550px;
     }
 
 }
@@ -567,9 +563,6 @@
     .people-section .section-heading h2 {
         font-size: 32px;
     }
-
-
-    /* PI */
 
     .pi-image {
         height: 345px;
@@ -593,9 +586,6 @@
         width: 100%;
     }
 
-
-    /* Members */
-
     .person-image {
         height: 295px;
     }
@@ -608,105 +598,26 @@
         font-size: 25px;
     }
 
+    .flip-inner {
+        min-height: 580px;
+    }
+
 }
+
+
 /* =====================================================
-   FLIP CARD
+   REDUCED MOTION
 ===================================================== */
 
-.person-card {
-    perspective: 1000px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-}
+@media (prefers-reduced-motion: reduce) {
 
-.flip-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 420px;
-    transition: transform 0.6s ease;
-    transform-style: preserve-3d;
-}
+    .flip-inner {
+        transition: none;
+    }
 
-.person-card.flipped .flip-inner {
-    transform: rotateY(180deg);
-}
+    .pi-image img,
+    .person-image img {
+        transition: none;
+    }
 
-.flip-front,
-.flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border: 1px solid var(--border-light);
-    background: var(--white);
-    overflow: hidden;
-}
-
-.flip-back {
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 28px;
-    background: var(--brown-dark);
-    color: var(--white);
-}
-
-.flip-back .person-role {
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-.flip-back h3 {
-    color: var(--white);
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.flip-back .research-label {
-    color: rgba(255,255,255,0.60);
-    margin-bottom: 6px;
-}
-
-.flip-back p:last-child {
-    color: rgba(255,255,255,0.85);
-    font-size: 14px;
-    line-height: 1.75;
-    margin: 0;
-}
-
-.flip-hint {
-    position: absolute;
-    bottom: 12px;
-    right: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--white);
-    background: var(--green);
-    padding: 4px 10px;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.person-card:hover .flip-hint {
-    opacity: 1;
-}
-
-.flip-back-hint {
-    position: absolute;
-    bottom: 12px;
-    right: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.55);
-    padding: 4px 10px;
 }
