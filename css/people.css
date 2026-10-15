@@ -609,3 +609,104 @@
     }
 
 }
+/* =====================================================
+   FLIP CARD
+===================================================== */
+
+.person-card {
+    perspective: 1000px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.person-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    overflow: hidden;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px;
+    background: var(--brown-dark);
+    color: var(--white);
+}
+
+.flip-back .person-role {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.flip-back h3 {
+    color: var(--white);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.flip-back .research-label {
+    color: rgba(255,255,255,0.60);
+    margin-bottom: 6px;
+}
+
+.flip-back p:last-child {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.flip-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--white);
+    background: var(--green);
+    padding: 4px 10px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.person-card:hover .flip-hint {
+    opacity: 1;
+}
+
+.flip-back-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.55);
+    padding: 4px 10px;
+}
